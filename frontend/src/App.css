@@ -1,0 +1,54 @@
+.without-login-render{
+  font-size: 20px;
+  height: 400px;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.post-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.post-input {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.feed {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.post {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.delete-btn {
+  display: none;
+  color:red;
+  cursor: pointer;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.post:hover .delete-btn {
+  display: block;
+}

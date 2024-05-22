@@ -1,0 +1,23 @@
+.navigation {
+    height: 70px;
+    background-color: white;
+    margin-bottom: 50px;
+    margin: 0 40px 40px 40px;
+}
+  
+.logo {
+    height: 35px;
+}
+  
+.logo-img {
+    height: 100%;
+}
+
+.navigation-1 {
+
+}
+
+.navigation-2 {
+    display: flex;
+    gap: 10px;
+}

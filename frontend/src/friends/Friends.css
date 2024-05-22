@@ -1,0 +1,44 @@
+.friends-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.user-card {
+  width: 50%;
+}
+  
+.user-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+.username {
+    font-weight: bold;
+    font-size: 18px;
+}
+  
+.friend-button {
+  width: 150px;
+}
+  
+.friend-button.add {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.friend-button.add:hover, .friend-button.add:active {
+  background-color: #208337;
+}
+
+.friend-button.remove {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.friend-button.remove:hover, .friend-button.remove:active {
+  background-color: #a92633;
+}
