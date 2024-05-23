@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axiosInstance from '../configs/axiosConfig';
 import './Login.css';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import API_URL from '../api_url';
 import Button from 'react-bootstrap/Button'
@@ -37,6 +37,7 @@ const Login = (props) => {
       const response = await axiosInstance.post(API_URL + '/auth/login', userData, {withCredentials: true});
       console.log("login successful");
       localStorage.setItem('userInfo', JSON.stringify(response.data));
+      console.log(JSON.parse(localStorage.getItem("userInfo")));
       setError(null);
       navigate('/');
     } catch(error) {
