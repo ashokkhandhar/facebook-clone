@@ -26,7 +26,6 @@ const Login = (props) => {
     else {
       handleSignup();
     }
-
   };
 
   const handleLogin = async () => {
@@ -37,7 +36,6 @@ const Login = (props) => {
       const response = await axiosInstance.post(API_URL + '/auth/login', userData, {withCredentials: true});
       console.log("login successful");
       localStorage.setItem('userInfo', JSON.stringify(response.data));
-      console.log(JSON.parse(localStorage.getItem("userInfo")));
       setError(null);
       navigate('/');
     } catch(error) {

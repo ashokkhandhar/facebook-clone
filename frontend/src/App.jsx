@@ -16,6 +16,7 @@ function App() {
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("userInfo"));
     setUser(storedUser);
+    console.log(storedUser);
     if (storedUser) {
       fetchUserPosts();
     }
