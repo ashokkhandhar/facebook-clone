@@ -2,6 +2,7 @@ import { User } from "../models/UserModel.js";
 
 
 const verifySession = async (req, res, next) => {
+    console.log(req.session);
     if(!req.session || !req.session.user) {
         return res.status(401).send("Please login");
     }
