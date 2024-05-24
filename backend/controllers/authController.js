@@ -55,7 +55,8 @@ export const login = async (req, res) => {
             return res.status(401).send("Password is incorrect");
         }
         req.session.user = { id: user._id, username: user.username, email: user.email };
-        console.log("just created: ", req.session.user);
+        console.log(req.session);
+        console.log(req.session.user);
         return res.status(200).send({ username: user.username, email: user.email, _id: user._id });
     } catch (error) {
         return res.status(500).send(error.message);
