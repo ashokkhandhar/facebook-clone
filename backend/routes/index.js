@@ -6,8 +6,8 @@ import postRoutes from './post.js';
 
 const router = Router();
 
-router.use("/user", userRoutes);
 router.use("/auth", authRoutes);
+router.use("/user", userRoutes);
 router.use("/friends", friendsRoutes);
 router.use("/post", postRoutes);
 

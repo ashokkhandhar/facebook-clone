@@ -4,7 +4,7 @@ import { FriendRequest } from '../models/FriendRequestModel.js';
 import mongoose from 'mongoose';
 
 export const fetchFriends = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     try {
         const frinedListDocument = await Friends.findOne({userId: userId});
         if(!frinedListDocument) {
@@ -34,7 +34,7 @@ export const sendFriendRequest = async (req, res) => {
 }
 
 export const fetchAllRequest = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     try {
         const allFriendRequests = await FriendRequest.find({ toUserId: userId });
         const fromUserIds = allFriendRequests.map((friendrequest) => new mongoose.Types.ObjectId(friendrequest.fromUserId));
@@ -47,7 +47,7 @@ export const fetchAllRequest = async (req, res) => {
 
 
 export const acceptFriendRequest = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     const friendsId = req.params.friendsId; 
     try { 
         await addUserInFriendList(userId, friendsId);
@@ -77,7 +77,7 @@ const addUserInFriendList = async (userId, friendsId) => {
 }
 
 export const unfriend = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     const friendsId = req.params.friendsId; 
     try {
         await removeUserFromFriendList(userId, friendsId);

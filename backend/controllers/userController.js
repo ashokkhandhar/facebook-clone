@@ -23,7 +23,7 @@ export const allUsers = async (req, res) => {
 }
 
 export const addNewPost = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     const { post } = req.body;
     try {
         const newPost = new Post({
@@ -39,7 +39,7 @@ export const addNewPost = async (req, res) => {
 }
 
 export const getUsersPosts = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     try {
         const userPosts = await Post.find({userId: userId});
         return res.send(userPosts);
@@ -49,7 +49,7 @@ export const getUsersPosts = async (req, res) => {
 }
 
 export const userTimeline = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     try {
         const frinedListDocument = await Friends.findOne({userId: userId});
         if(!frinedListDocument) return res.send([]);

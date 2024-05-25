@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import axiosInstance from '../configs/axiosConfig';
 import './Login.css';
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import API_URL from '../api_url';
 import Button from 'react-bootstrap/Button'
-import axios from 'axios';
 
 const Login = (props) => {
 
@@ -34,7 +33,7 @@ const Login = (props) => {
 
     try {
       const response = await axiosInstance.post(API_URL + '/auth/login', userData, {withCredentials: true});
-      console.log("login successful");
+      console.log("Login successful");
       localStorage.setItem('userInfo', JSON.stringify(response.data));
       setError(null);
       navigate('/');

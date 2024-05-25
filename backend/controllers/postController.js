@@ -2,7 +2,7 @@ import { Post } from "../models/PostModel.js";
 import { User } from "../models/UserModel.js";
 
 export const likePost = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     const postId = req.params.postId;
 
     try {
@@ -28,7 +28,7 @@ export const likePost = async (req, res) => {
 }
 
 export const dislikePost = async (req, res) => {
-    const userId = req.session.user.id;
+    const userId = req.user.id;
     const postId = req.params.postId;
     try {
         const user = await User.findById(userId);

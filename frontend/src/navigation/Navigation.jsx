@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import axiosInstance from '../configs/axiosConfig';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Navbar } from 'react-bootstrap';
 import './Navigation.css';
+import API_URL from '../api_url';
 
 const Navigation = () => {
 
@@ -12,10 +14,16 @@ const Navigation = () => {
     setUser(localStorage.getItem('userInfo'));
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('userInfo');
-    setUser(undefined);
-    window.location.reload();
+  const handleLogout = async () => {
+    try {
+      const response = await axiosInstance.post(API_URL + '/auth/logout', {}, {withCredentials: true});
+      console.log(response);
+      localStorage.removeItem('userInfo');
+      setUser(undefined);
+      window.location.reload();
+    } catch(error) {
+      console.log(error.response.data || "Error while logout, please try again");
+    }
   }
 
 
