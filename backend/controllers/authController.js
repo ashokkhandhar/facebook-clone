@@ -36,8 +36,8 @@ export const register = async (req, res) => {
     });
 
     try {
-        const response = await newUser.save();
-        console.log("New Register: ", response);
+        const user = await newUser.save();
+        console.log("New Register: ", user);
         // creating token
         const jwtToken = jwt.sign({id: user._id}, process.env.JWT_SECRET_KEY);
         const newToken = new Token({
